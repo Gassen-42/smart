@@ -1,0 +1,3 @@
+# smart/requirements.txt
+openai
+python-dotenv

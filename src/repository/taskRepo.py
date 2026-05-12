@@ -26,17 +26,12 @@ class TaskRepository:
         return False
     
     
-    def check_priority_per_date(created: datetime, duedate: datetime):
-         diff_days:int = (created - duedate).days
-         return diff_days
+   
      
     def is_over_due(self)->bool:
         if Task.completed:
             return False
         return datetime.now() > Task.due_date
-    
-    def date_remaining(self):
-        return Task.due_date - datetime.now()
         
    
 
