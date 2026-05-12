@@ -16,6 +16,8 @@ date_obj = datetime.strptime("2026-05-09", "%Y-%m-%d")
 tache = service.create_task(
     1, "Finaliser le projet", "Refactoring complet", "high", date_obj
 )
+print("\n" + " "*10)
+print("Gestion des taches: ")
 
 print(f"Tâche créée : {tache.title} (ID: {tache.id})")
 print(f"Liste des tâches : {service.read_all_tasks()}")
