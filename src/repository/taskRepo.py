@@ -26,12 +26,16 @@ class TaskRepository:
         return False
     
     
-   
-     
     def is_over_due(self)->bool:
         if Task.completed:
             return False
         return datetime.now() > Task.due_date
+    
+    def update_task(self,taskid: int, updateTask: Task)->Task:
+        for task in enumerate(self._tasks):
+            if Task.id ==taskid:
+                self._tasks[task] = updateTask
+                return self._tasks[task]
         
    
 

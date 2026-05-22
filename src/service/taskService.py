@@ -32,14 +32,22 @@ class TaskService:
                 print(f"Erreur Ia: {e}")
         return task
 
-    def read_all_tasks(self)->list[Task]:
+    def read_all_tasks(self)->list[Task]|None:
         the_tasks = self.taskrepo.read_all_tasks()
         for t in the_tasks:
-            print(t)
+            return t if t is not None else []
+            
         
-    
-    def delete_task(tasks: list[Task], taskid: int) -> Task:
-        for i, task in enumerate(tasks):
-            if task.id == taskid:
-                return tasks.pop(i)
-            raise ValueError("Task not found")
+    def delete_tasks(self, taskid: int) -> Task:
+        try:
+            return self.taskrepo.remove(taskid)
+        except ValueError as e:
+            
+            print(f'service error {e}')
+            
+    def update_tasks(self, taskid: int)->Task:
+        try:
+            return self.taskrepo.update_task(taskid)
+        except ValueError as e:
+            print(f"service error {e}")
+  

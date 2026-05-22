@@ -20,7 +20,7 @@ class Task:
         )
         
     @staticmethod   
-    def date_remaining(self):
+    def date_remaining():
         return Task.due_date - datetime.now()
     
     
